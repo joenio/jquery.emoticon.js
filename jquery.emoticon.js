@@ -4,7 +4,7 @@ $.fn.emoticon = function(theText) {
 	for( var a in emoticons.emoticon ) {
 		emoticon = emoticons.emoticon[a];
 		for( var emote in emoticon.emotes ) {
-			newText = newText.replace( new RegExp( emote, 'g' ), '<img src="'+imagePath + emoticon.image + '" />');
+			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+imagePath + emoticon.image + '" />');
 		}
 	}
 	return newText;
