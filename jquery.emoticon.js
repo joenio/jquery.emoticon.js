@@ -1,36 +1,15 @@
-$.fn.emoticon = function(element){
-	
-    	var imagePath = "emotes/";   
-        var ee;
-		
-		for (emote in emoticons.emoticon) {
-			console.log(emoticons.emoticon[emote]);
-			//$(element).append('<img src = "'+imagePath+emoticons.emoticon[emote].image+'" />');
-			for(face in emoticons.emoticon[emote].emotes)
-			{
-				console.log(face);
-				//$(element).append(face);
-			}
-			
-		}
-		
-		
-		
-		/*
-        for(emote in emoticons.emotes)
-        {
-            ee=emoticons.emotes[emote].emotes;
-            for(e in ee)
-                {
-                
-                var k = '$(element).html().replace(/'+e+'/g,"::smile")';
-                eval(k);
-	        console.log(k);
-                $(element).html(k);
-                }
-        }
-*/
-	
-	
-	
-}; 
+// pass it an element.
+$.fn.emoticon = function(element) {
+	// console.log( element );
+	text = element.innerHTML;
+	
+	for( var a in emoticons.emoticon ) {
+		emoticon = emoticons.emoticon[a];
+		
+		for( var emote in emoticon.emotes ) {
+			text = text.replace( new RegExp( emote, 'g' ), '<img src="images/' + emoticon.image + '" />');
+		}
+	}
+	
+	element.innerHTML = text;
+};
