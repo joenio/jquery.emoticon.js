@@ -6,7 +6,7 @@
 		<script type="text/javascript" src="emoticons.js"></script>
 		<script>
 
-			var imagePath = "http://uprising.tv/marak/jQuery.emoticon/emotes/"; 
+			var imagePath = "http://uprising.tv/marak/jquery.emoticon.js/emotes/"; 
 			$(document).ready( function(){
 				$('#submit').click(function(){
 					$('#output').append($('#input').val());
@@ -15,7 +15,7 @@
 					$('#output').html(emotedText);
 				});
 				$('#clearTxt').click(function(){
-					$('#output').val('');
+					$('#output').html('');
 				});
 
 
@@ -25,7 +25,6 @@
 						$('#emoticons').append('<img src = "'+imagePath+emoticons.emoticon[emote].image+'" />');
 						for(face in emoticons.emoticon[emote].emotes)
 						{
-							console.log(face);
 							//$('#emoticons').append('&nbsp;&nbsp;' +escape(face)+'');
 						}
 						$('#emoticons').append('<br/>');

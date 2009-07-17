@@ -1,5 +1,5 @@
 $.fn.emoticon = function(theText) {
-	var imagePath = "http://uprising.tv/marak/jQuery.emoticon/emotes/"; 
+	var imagePath = "http://uprising.tv/marak/jquery.emoticon.js/emotes/"; 
 	var newText = theText;
 	for( var a in emoticons.emoticon ) {
 		emoticon = emoticons.emoticon[a];
