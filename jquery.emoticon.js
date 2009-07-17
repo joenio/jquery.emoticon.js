@@ -1,15 +1,11 @@
-// pass it an element.
-$.fn.emoticon = function(element) {
-	// console.log( element );
-	text = element.innerHTML;
-	
+$.fn.emoticon = function(theText) {
+	var imagePath = "http://uprising.tv/marak/jQuery.emoticon/emotes/"; 
+	var newText = theText;
 	for( var a in emoticons.emoticon ) {
 		emoticon = emoticons.emoticon[a];
-		
 		for( var emote in emoticon.emotes ) {
-			text = text.replace( new RegExp( emote, 'g' ), '<img src="images/' + emoticon.image + '" />');
+			newText = newText.replace( new RegExp( emote, 'g' ), '<img src="'+imagePath + emoticon.image + '" />');
 		}
 	}
-	
-	element.innerHTML = text;
+	return newText;
 };

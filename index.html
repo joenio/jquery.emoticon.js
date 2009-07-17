@@ -1,71 +1,111 @@
-<html>
-	<head>
-		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery-1.3.min.js"></script>
-		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery.json-1.3.min.js"></script>	
-		<script type="text/javascript" src="jquery.emoticon.js"></script>
-			<script type="text/javascript" src="emoticons.js"></script>
-		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/js/prettyPrint.js"></script>
-		
-		
-		
-		<script>
-			var imagePath = "emotes/"; 
-			$(document).ready( function(){
-
-				$('#submit').click(function(){
-					$('#output').append($('#input').val());
-					$('#input').val('');
-				});
-
-				$('#replaceEmotes').click(function(){
-					$().emoticon($('#output'));
-				});
-
-
-				for (emote in emoticons.emoticon) {
-						console.log(emoticons.emoticon[emote]);
-						$('#emoticons').append('<img src = "'+imagePath+emoticons.emoticon[emote].image+'" />');
-						for(face in emoticons.emoticon[emote].emotes)
-						{
-							console.log(face);
-							$('#emoticons').append('&nbsp;&nbsp;' +face+'');
-						}
-						$('#emoticons').append('<br/>');
-					}
-		
-
-
-				
-			});
-			
-		</script>	
-		<style>
-			#output{height:200px;width:200px;}
-		</style>
-
-	</head>
-	<body>
-		
-		<form>
-			<table border="1">
-				<tr>
-					<td><textarea id = "input" name = "input"></textarea>
-</td>
-					<td>			
-						<input id="submit" name="submit" type = "button" value = "Append Text"><br/>
-						<input id="replaceEmotes" name="replaceEmotes" type = "button" value = "$().emoticon()">
-					</td>
-				</tr>
-				<tr>
-					<td><div id = "output"></div></td>
-					<td><div id = "emoticons"></div></td>
-				</tr>
-	
-	
-			</table>
-		</form>
-		
-		
-		
-	</body>
+<html>
+
+	<head>
+
+		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery-1.3.min.js"></script>
+
+		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery.json-1.3.min.js"></script>	
+
+		<script type="text/javascript" src="jquery.emoticon.js"></script>
+
+			<script type="text/javascript" src="emoticons.js"></script>
+
+		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/js/prettyPrint.js"></script>
+
+		
+
+		
+
+		
+
+		<script>
+
+			var imagePath = "http://uprising.tv/marak/jQuery.emoticon/emotes/"; 
+
+			$(document).ready( function(){
+
+
+
+				$('#submit').click(function(){
+
+					$('#output').append($('#input').val());
+
+					$('#input').val('');
+
+				});
+
+
+
+				$('#replaceEmotes').click(function(){
+					var emotedText =	$().emoticon($('#output').html());
+					$('#output').html(emotedText);
+				});
+
+				for (emote in emoticons.emoticon) {
+						console.log(emoticons.emoticon[emote]);
+						$('#emoticons').append('<img src = "'+imagePath+emoticons.emoticon[emote].image+'" />');
+						for(face in emoticons.emoticon[emote].emotes)
+						{
+							console.log(face);
+							$('#emoticons').append('&nbsp;&nbsp;' +face+'');
+						}
+						$('#emoticons').append('<br/>');
+					}
+			});
+		</script>	
+
+		<style>
+			#output{height:200px;width:200px;}
+		</style>
+
+	</head>
+
+	<body>
+
+		
+
+		<form>
+
+			<table border="1">
+
+				<tr>
+
+					<td><textarea id = "input" name = "input"></textarea>
+
+</td>
+
+					<td>			
+
+						<input id="submit" name="submit" type = "button" value = "Append Text"><br/>
+
+						<input id="replaceEmotes" name="replaceEmotes" type = "button" value = "$().emoticon()">
+
+					</td>
+
+				</tr>
+
+				<tr>
+
+					<td><div id = "output"></div></td>
+
+					<td><div id = "emoticons"></div></td>
+
+				</tr>
+
+	
+
+	
+
+			</table>
+
+		</form>
+
+		
+
+		
+
+		
+
+	</body>
+
 </html>
