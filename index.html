@@ -1,45 +1,24 @@
 <html>
-
 	<head>
-
 		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery-1.3.min.js"></script>
-
 		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/jquery.json-1.3.min.js"></script>	
-
 		<script type="text/javascript" src="jquery.emoticon.js"></script>
-
-			<script type="text/javascript" src="emoticons.js"></script>
-
-		<script type="text/javascript" src="http://uprising.tv/marak/jQuery.template/js/prettyPrint.js"></script>
-
-		
-
-		
-
-		
-
+		<script type="text/javascript" src="emoticons.js"></script>
 		<script>
 
 			var imagePath = "http://uprising.tv/marak/jQuery.emoticon/emotes/"; 
-
 			$(document).ready( function(){
-
-
-
 				$('#submit').click(function(){
-
 					$('#output').append($('#input').val());
-
 					$('#input').val('');
-
-				});
-
-
-
-				$('#replaceEmotes').click(function(){
 					var emotedText =	$().emoticon($('#output').html());
 					$('#output').html(emotedText);
 				});
+				$('#clearTxt').click(function(){
+					$('#output').val('');
+				});
+
+
 
 				for (emote in emoticons.emoticon) {
 						console.log(emoticons.emoticon[emote]);
@@ -47,7 +26,7 @@
 						for(face in emoticons.emoticon[emote].emotes)
 						{
 							console.log(face);
-							$('#emoticons').append('&nbsp;&nbsp;' +face+'');
+							//$('#emoticons').append('&nbsp;&nbsp;' +escape(face)+'');
 						}
 						$('#emoticons').append('<br/>');
 					}
@@ -76,9 +55,9 @@
 
 					<td>			
 
-						<input id="submit" name="submit" type = "button" value = "Append Text"><br/>
-
-						<input id="replaceEmotes" name="replaceEmotes" type = "button" value = "$().emoticon()">
+						<input id="submit" name="submit" type = "button" value = "Send Message"><br/>
+<input  id="clearTxt" name="clearTxt" type = "button" value = "Clear">
+						
 
 					</td>
 
