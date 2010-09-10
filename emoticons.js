@@ -1,4 +1,5 @@
-/* Copyright (c) 2009 Marak Squires - www.maraksquires.com
+/* Copyright (c) 2010 Colivre - www.colivre.coop.br
+   Copyright (c) 2009 Marak Squires - www.maraksquires.com
  
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -24,6 +25,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 
 var emoticons = {
+	"image_path": "emotes/",
 	"emoticon": {
 		"::smile": {
 			"image": "smile.png",

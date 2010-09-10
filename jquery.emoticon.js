@@ -40,14 +40,13 @@ RegExp.escape = function(text) {
 
 ;(function($){
    $.fn.emoticon = function(theText) {
-   	var imagePath = "emotes/"; 
    	var newText = theText;
    	for( var a in emoticons.emoticon ) {
    		emoticon = emoticons.emoticon[a];
    		for( var emote in emoticon.emotes ) {
    
    			emote = RegExp.escape(emote);
-   			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+imagePath + emoticon.image + '" />');
+   			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+emoticons.image_path + emoticon.image + '" />');
    		}
    	}
    	return newText;
