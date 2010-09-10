@@ -40,15 +40,14 @@ RegExp.escape = function(text) {
 
 ;(function($){
    $.fn.emoticon = function(theText) {
-   	var newText = theText;
-   	for( var a in emoticons.emoticon ) {
-   		emoticon = emoticons.emoticon[a];
-   		for( var emote in emoticon.emotes ) {
-   
-   			emote = RegExp.escape(emote);
-   			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+emoticons.image_path + emoticon.image + '" />');
-   		}
-   	}
-   	return newText;
+      var newText = theText;
+      for( var a in emoticons.emoticon ) {
+         emoticon = emoticons.emoticon[a];
+         for( var emote in emoticon.emotes ) {
+            emote = RegExp.escape(emote);
+            newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+emoticons.image_path + emoticon.image + '" />');
+         }
+      }
+      return newText;
    };
 })(jQuery);
