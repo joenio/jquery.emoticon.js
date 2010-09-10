@@ -1,4 +1,5 @@
-/* Copyright (c) 2009 Marak Squires - www.maraksquires.com
+/* Copyright (c) 2010 Colivre - www.colivre.coop.br
+   Copyright (c) 2009 Marak Squires - www.maraksquires.com
  
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
@@ -37,16 +38,18 @@ RegExp.escape = function(text) {
   return text.replace(arguments.callee.sRE, '\\$1');
 }
 
-$.fn.emoticon = function(theText) {
-	var imagePath = "emotes/"; 
-	var newText = theText;
-	for( var a in emoticons.emoticon ) {
-		emoticon = emoticons.emoticon[a];
-		for( var emote in emoticon.emotes ) {
-
-			emote = RegExp.escape(emote);
-			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+imagePath + emoticon.image + '" />');
-		}
-	}
-	return newText;
-};
+;(function($){
+   $.fn.emoticon = function(theText) {
+   	var imagePath = "emotes/"; 
+   	var newText = theText;
+   	for( var a in emoticons.emoticon ) {
+   		emoticon = emoticons.emoticon[a];
+   		for( var emote in emoticon.emotes ) {
+   
+   			emote = RegExp.escape(emote);
+   			newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+imagePath + emoticon.image + '" />');
+   		}
+   	}
+   	return newText;
+   };
+})(jQuery);
