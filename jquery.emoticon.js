@@ -44,8 +44,8 @@ RegExp.escape = function(text) {
       for( var a in emoticons.emoticon ) {
          emoticon = emoticons.emoticon[a];
          for( var emote in emoticon.emotes ) {
-            emote = RegExp.escape(emote);
-            newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+emoticons.image_path + emoticon.image + '" />');
+            emote = RegExp.escape(emote) + "([^/]|$)";
+            newText = newText.replace( new RegExp( emote, 'gi' ), '<img src="'+emoticons.image_path + emoticon.image + '" />$1');
          }
       }
       return newText;
